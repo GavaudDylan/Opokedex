@@ -1,7 +1,11 @@
+// Import des variables d'environnement
+import "dotenv/config";
+
 import express from "express";
 import cors from "cors";
 
 import { router } from "./app/router.js";
+
 // Création de l'application
 const app = express();
 
