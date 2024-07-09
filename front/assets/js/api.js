@@ -1,5 +1,4 @@
 import { apiBaseUrl } from "./config.js";
-import { addPokemonTopokemonsContainer } from "./pokemon.module.js";
 
 export async function getPokemons() {
   try {
@@ -16,5 +15,21 @@ export async function getPokemons() {
   }
 }
 
+// export async function getPokemon(id) {
+//   try {
+//     const httpResponse = await fetch(`${apiBaseUrl}/pokemons/${id}`);
+//     if (!httpResponse.ok) {
+//       console.log(httpResponse);
+//       return null;
+//     }
+//     const pokemon = await httpResponse.json();
+//     return pokemon;
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// }
+
 //Lancer la fonction pour test
 // getPokemons();
+// getPokemon(1);

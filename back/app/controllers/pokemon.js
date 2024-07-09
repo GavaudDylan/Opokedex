@@ -5,3 +5,10 @@ export async function getAllpokemons(req, res) {
   // console.log(pokemons);
   res.json(pokemons);
 }
+
+export async function getPokemonById(req, res) {
+  const { id } = req.params;
+  const pokemon = await Pokemon.findByPk(id);
+  console.log(pokemon);
+  res.json(pokemon);
+}

@@ -57,15 +57,36 @@ export function addPokemonTopokemonsContainer(pokemon) {
     pokemonModal.dataset.def_spe = pokemon.def_spe;
     pokemonModal.dataset.speed = pokemon.speed;
 
-    // - inserer les datasets dans la modale
-    pokemonModal.querySelector("[slot=pokemon-hp]").value = pokemon.hp;
-    pokemonModal.querySelector("[slot=pokemon-atk]").value = pokemon.atk;
-    pokemonModal.querySelector("[slot=pokemon-def]").value = pokemon.def;
-    pokemonModal.querySelector("[slot=pokemon-atk-spe]").value =
+    // - inserer les datasets values dans la modale
+    pokemonModal.querySelector("[slot=pokemon-hp-value]").value = pokemon.hp;
+    pokemonModal.querySelector("[slot=pokemon-atk-value]").value = pokemon.atk;
+    pokemonModal.querySelector("[slot=pokemon-def-value]").value = pokemon.def;
+    pokemonModal.querySelector("[slot=pokemon-atk-spe-value]").value =
       pokemon.atk_spe;
-    pokemonModal.querySelector("[slot=pokemon-def-spe]").value =
+    pokemonModal.querySelector("[slot=pokemon-def-spe-value]").value =
       pokemon.def_spe;
-    pokemonModal.querySelector("[slot=pokemon-speed]").value = pokemon.speed;
+    pokemonModal.querySelector("[slot=pokemon-speed-value]").value =
+      pokemon.speed;
+
+    // - inserer les datasets en texte des stats dans la modale
+    pokemonModal.querySelector(
+      "[slot=pokemon-hp-content]"
+    ).textContent = `HP: ${pokemon.hp}`;
+    pokemonModal.querySelector(
+      "[slot=pokemon-atk-content]"
+    ).textContent = `ATK: ${pokemon.atk}`;
+    pokemonModal.querySelector(
+      "[slot=pokemon-def-content]"
+    ).textContent = `DEF: ${pokemon.def}`;
+    pokemonModal.querySelector(
+      "[slot=pokemon-atk-spe-content]"
+    ).textContent = `ATK-SPE: ${pokemon.atk_spe}`;
+    pokemonModal.querySelector(
+      "[slot=pokemon-def-spe-content]"
+    ).textContent = `DEF-SPE: ${pokemon.def_spe}`;
+    pokemonModal.querySelector(
+      "[slot=pokemon-speed-content]"
+    ).textContent = `SPEED: ${pokemon.speed}`;
   });
 
   // - selectionner le pokemons-container

@@ -34,14 +34,47 @@
         <!-- Inserer le tamplate de pokemon ici -->
     </div>
 
-    <!-- template de Pokémon -->
+
+
+    <!-- template de Pokémon 
     <template id="template-pokemon">
         <div class="cell p-4">
             <div slot="pokemon-id-name" class="has-text-centered">
-                <!-- Nom du Pokémon -->
+             
             </div>
             <div>
                 <img src="">
+            </div>
+        </div>
+    </template>
+-->
+
+
+
+    <template id="template-pokemon">
+        <div class="cell p-4">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <div>
+                            <img src="">
+                        </div>
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">
+                            <div slot="pokemon-id-name" class="has-text-centered">
+                                <!-- Nom du Pokémon -->
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
@@ -60,12 +93,18 @@
                 <div class="image-container">
                     <img src="" class="modal-image">
                 </div>
-                <p>hp: <progress class="progress is-danger" max="100" slot="pokemon-hp"></progress></p>
-                <p>atk: <progress class="progress is-success" max="100" slot="pokemon-atk"></progress></p>
-                <p>def: <progress class="progress is-link" max="100" slot="pokemon-def"></progress></p>
-                <p>atkSpe: <progress class="progress is-primary" max="100" slot="pokemon-atk-spe"></progress></p>
-                <p>defSpe: <progress class="progress is-info" max="100" slot="pokemon-def-spe"></progress></p>
-                <p>speed: <progress class="progress is-warning" max="100" slot="pokemon-speed"></progress></p>
+                <p><span slot="pokemon-hp-content"></span><progress class="progress is-danger" max="250"
+                        slot="pokemon-hp-value"></progress></p>
+                <p><span slot="pokemon-atk-content"></span><progress class="progress is-success" max="250"
+                        slot="pokemon-atk-value"></progress></p>
+                <p><span slot="pokemon-def-content"></span><progress class="progress is-link" max="250"
+                        slot="pokemon-def-value"></progress></p>
+                <p><span slot="pokemon-atk-spe-content"></span><progress class="progress is-primary" max="250"
+                        slot="pokemon-atk-spe-value"></progress></p>
+                <p><span slot="pokemon-def-spe-content"></span><progress class="progress is-info" max="250"
+                        slot="pokemon-def-spe-value"></progress></p>
+                <p><span slot="pokemon-speed-content"></span><progress class="progress is-warning" max="250"
+                        slot="pokemon-speed-value"></progress></p>
             </section>
             <footer class="modal-card-foot">
 
