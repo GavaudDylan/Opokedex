@@ -21,8 +21,8 @@
         crossorigin="anonymous">
 
     <!-- Compressed JavaScript -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
-        crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
+        crossorigin="anonymous"></script>
 
     <script type="module" src="./assets/js/index.js"></script>
 
@@ -33,34 +33,20 @@
         <h1>Pokedex</h1>
     </header>
 
-    <div id="pokemons-container" class="pokemons">
-
-    </div>
-
     <div class="grid-container">
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-            <div class="cell">
-                <div class="card">
-                    <template id="template-pokemon">
-                        <div class="card" style="width: 300px;">
-                            <div class="card-divider" slot="pokemon-name">
-                                Nom du Pokémon
-                            </div>
-                            <div class="card-section">
-                                <img src="">
-                            </div>
-                            <div class="card-section">
-                                <p>hp,
-                                    atk,
-                                    def,
-                                    atk_spe,
-                                    def_spe,
-                                    speed</p>
-                            </div>
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3" id="pokemons-container">
+            <template id="template-pokemon">
+                <div class="cell">
+                    <div class="card">
+                        <div class="card-divider" slot="pokemon-id-name">
+                            Nom du Pokémon
                         </div>
-                    </template>
+                        <div class="card-section">
+                            <img src="">
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </template>
         </div>
     </div>
 

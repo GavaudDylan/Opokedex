@@ -17,8 +17,14 @@ export function addPokemonTopokemonsContainer(pokemon) {
   // - cloner le template
   const pokemonClone = pokemonTemplate.content.cloneNode(true);
 
-  // - modifier le template avec les données du pokemon (name)
-  pokemonClone.querySelector("[slot=pokemon-name]").textContent = pokemon.name;
+  // - recuperer l'id du pokemon
+  pokemonClone.querySelector("[slot=pokemon-id-name]").dataset.pkmId =
+    pokemon.id;
+
+  // - modifier le template avec les données du pokemon (id + name)
+  pokemonClone.querySelector(
+    "[slot=pokemon-id-name]"
+  ).textContent = `N° ${pokemon.id} - ${pokemon.name}`;
 
   // - modifier le template avec les données du pokemon (image)
   pokemonClone.querySelector("img").src = `./assets/img/${pokemon.id}.webp`;
