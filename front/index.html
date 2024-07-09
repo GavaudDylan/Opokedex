@@ -16,15 +16,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Compressed CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
-        crossorigin="anonymous">
-
-    <!-- Compressed JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
-        crossorigin="anonymous"></script>
-
     <script type="module" src="./assets/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+
 
 </head>
 
@@ -33,22 +28,33 @@
         <h1>Pokedex</h1>
     </header>
 
-    <div class="grid-container">
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3" id="pokemons-container">
-            <template id="template-pokemon">
-                <div class="cell">
-                    <div class="card">
-                        <div class="card-divider" slot="pokemon-id-name">
-                            Nom du Pokémon
-                        </div>
-                        <div class="card-section">
-                            <img src="">
-                        </div>
-                    </div>
-                </div>
-            </template>
-        </div>
+    <div id="pokemons-container" class="container grid gap-8 column-gap-8 is-col-min-12">
+        <!-- Inserer le tamplate de pokemon ici -->
     </div>
+
+
+
+
+
+
+    <template id="template-pokemon">
+        <div class="cell p-4">
+            <div slot="pokemon-id-name">
+                <!-- Nom du Pokémon -->
+            </div>
+            <div>
+                <img src="">
+            </div>
+            <div>
+                <p>hp,
+                    atk,
+                    def,
+                    atk_spe,
+                    def_spe,
+                    speed</p>
+            </div>
+        </div>
+    </template>
 
 </body>
 

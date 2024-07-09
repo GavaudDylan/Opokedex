@@ -1,5 +1,7 @@
 import { getPokemons } from "./api.js";
 
+const pkmContainer = document.querySelector("#pokemons-container");
+
 export async function fetchAndDisplayPokemons() {
   const pokemons = await getPokemons();
 
@@ -7,15 +9,24 @@ export async function fetchAndDisplayPokemons() {
     alert("Une erreur est survenue. Réessayer plus tard."); // TODO: remplacer le alert par l'ouverture d'une modale d'erreur plus ergonomique
     return;
   }
+  // const grid = document.createElement("div");
+  // grid.classList.add("grid");
+  // pkmContainer.appendChild(grid);
   pokemons.forEach(addPokemonTopokemonsContainer);
+  // pkmContainer.appendChild(grid);
 }
 
 export function addPokemonTopokemonsContainer(pokemon) {
+  const grid = document.querySelector(".grid");
   // - récupérer le template d'un pokemon
   const pokemonTemplate = document.querySelector("#template-pokemon");
 
   // - cloner le template
   const pokemonClone = pokemonTemplate.content.cloneNode(true);
+
+  // pokemonClone
+  //   .querySelector(".cell")
+  //   .setAttribute("data-open", "modale-pokemon");
 
   // - recuperer l'id du pokemon
   pokemonClone.querySelector("[slot=pokemon-id-name]").dataset.pkmId =
