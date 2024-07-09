@@ -1,3 +1,9 @@
 import { fetchAndDisplayPokemons } from "./pokemon.module.js";
 
-document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
+import { initClosingModalButtons } from "./utils.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+  initClosingModalButtons();
+
+  await fetchAndDisplayPokemons();
+});

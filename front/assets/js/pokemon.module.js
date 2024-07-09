@@ -9,24 +9,18 @@ export async function fetchAndDisplayPokemons() {
     alert("Une erreur est survenue. Réessayer plus tard."); // TODO: remplacer le alert par l'ouverture d'une modale d'erreur plus ergonomique
     return;
   }
-  // const grid = document.createElement("div");
-  // grid.classList.add("grid");
-  // pkmContainer.appendChild(grid);
+
   pokemons.forEach(addPokemonTopokemonsContainer);
-  // pkmContainer.appendChild(grid);
 }
 
 export function addPokemonTopokemonsContainer(pokemon) {
   const grid = document.querySelector(".grid");
+
   // - récupérer le template d'un pokemon
   const pokemonTemplate = document.querySelector("#template-pokemon");
 
   // - cloner le template
   const pokemonClone = pokemonTemplate.content.cloneNode(true);
-
-  // pokemonClone
-  //   .querySelector(".cell")
-  //   .setAttribute("data-open", "modale-pokemon");
 
   // - recuperer l'id du pokemon
   pokemonClone.querySelector("[slot=pokemon-id-name]").dataset.pkmId =
@@ -40,7 +34,39 @@ export function addPokemonTopokemonsContainer(pokemon) {
   // - modifier le template avec les données du pokemon (image)
   pokemonClone.querySelector("img").src = `./assets/img/${pokemon.id}.webp`;
 
-  // - modifier le template avec les données du pokemon (stat)
+  // - écouter le click sur la carte de Pokémon
+  const pokemonCard = pokemonClone.querySelector(".cell");
+  pokemonCard.addEventListener("click", () => {
+    // - activer la modale
+    const pokemonModal = document.querySelector("[slot=pokemon-modale]");
+    pokemonModal.classList.add("is-active");
+
+    // - modifier la modale avec les données du pokemon (id + name)
+    pokemonModal.querySelector(
+      "[slot=pokemon-id-name]"
+    ).textContent = `N° ${pokemon.id} - ${pokemon.name}`;
+
+    // - modifier la modale avec les données du pokemon (image)
+    pokemonModal.querySelector("img").src = `./assets/img/${pokemon.id}.webp`;
+
+    // -mettre les stats dans les dataset
+    pokemonModal.dataset.hp = pokemon.hp;
+    pokemonModal.dataset.atk = pokemon.atk;
+    pokemonModal.dataset.def = pokemon.def;
+    pokemonModal.dataset.atk_spe = pokemon.atk_spe;
+    pokemonModal.dataset.def_spe = pokemon.def_spe;
+    pokemonModal.dataset.speed = pokemon.speed;
+
+    // - inserer les datasets dans la modale
+    pokemonModal.querySelector("[slot=pokemon-hp]").value = pokemon.hp;
+    pokemonModal.querySelector("[slot=pokemon-atk]").value = pokemon.atk;
+    pokemonModal.querySelector("[slot=pokemon-def]").value = pokemon.def;
+    pokemonModal.querySelector("[slot=pokemon-atk-spe]").value =
+      pokemon.atk_spe;
+    pokemonModal.querySelector("[slot=pokemon-def-spe]").value =
+      pokemon.def_spe;
+    pokemonModal.querySelector("[slot=pokemon-speed]").value = pokemon.speed;
+  });
 
   // - selectionner le pokemons-container
   const pokemonsContainer = document.querySelector("#pokemons-container");

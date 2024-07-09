@@ -14,12 +14,13 @@
         href="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='24px' height='24px' stroke-width='1.5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='%23000000'%3E%3Cpath d='M3 3.6V20.4C3 20.7314 3.26863 21 3.6 21H20.4C20.7314 21 21 20.7314 21 20.4V3.6C21 3.26863 20.7314 3 20.4 3H3.6C3.26863 3 3 3.26863 3 3.6Z' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M6 6L6 16' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M10 6V9' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M14 6V13' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M18 6V11' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">0
 
     <script type="module" src="./assets/js/index.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
 
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
@@ -28,33 +29,49 @@
         <h1>Pokedex</h1>
     </header>
 
+    <!-- container de Pokémons -->
     <div id="pokemons-container" class="container grid gap-8 column-gap-8 is-col-min-12">
         <!-- Inserer le tamplate de pokemon ici -->
     </div>
 
-
-
-
-
-
+    <!-- template de Pokémon -->
     <template id="template-pokemon">
         <div class="cell p-4">
-            <div slot="pokemon-id-name">
+            <div slot="pokemon-id-name" class="has-text-centered">
                 <!-- Nom du Pokémon -->
             </div>
             <div>
                 <img src="">
             </div>
-            <div>
-                <p>hp,
-                    atk,
-                    def,
-                    atk_spe,
-                    def_spe,
-                    speed</p>
-            </div>
         </div>
     </template>
+
+    <!-- Modale de stats de Pokémon -->
+    <div class="modal" slot="pokemon-modale">
+        <div class="modal-background close-modal"></div>
+        <div class="modal-card">
+            <header class="modal-card-head flex-header">
+                <div slot="pokemon-id-name">
+                    <!-- Nom du Pokémon -->
+                </div>
+                <button class="delete close-modal" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="image-container">
+                    <img src="" class="modal-image">
+                </div>
+                <p>hp: <progress class="progress is-danger" max="100" slot="pokemon-hp"></progress></p>
+                <p>atk: <progress class="progress is-success" max="100" slot="pokemon-atk"></progress></p>
+                <p>def: <progress class="progress is-link" max="100" slot="pokemon-def"></progress></p>
+                <p>atkSpe: <progress class="progress is-primary" max="100" slot="pokemon-atk-spe"></progress></p>
+                <p>defSpe: <progress class="progress is-info" max="100" slot="pokemon-def-spe"></progress></p>
+                <p>speed: <progress class="progress is-warning" max="100" slot="pokemon-speed"></progress></p>
+            </section>
+            <footer class="modal-card-foot">
+
+            </footer>
+        </div>
+    </div>
 
 </body>
 
