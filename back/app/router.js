@@ -13,7 +13,7 @@ router.get("/pokemons", pokemonController.getAllpokemons);
 
 // Types
 router.get("/types", typeController.getAllTypes);
-// router.get("/types/:id", getTypeBId);
+// router.get("/types/:id", getTypeById);
 
 // Équipes
 router.get("/teams", teamController.GetAllTeams);

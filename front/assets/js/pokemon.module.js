@@ -1,8 +1,8 @@
-import { getPokemons } from "./api.js";
-
-const pkmContainer = document.querySelector("#pokemons-container");
+import { getPokemons, getPokemon, getTypes } from "./api.js";
+import { resetMainContainer, changeGridClass } from "./utils.js";
 
 export async function fetchAndDisplayPokemons() {
+  resetMainContainer();
   const pokemons = await getPokemons();
 
   if (!pokemons) {
@@ -10,12 +10,28 @@ export async function fetchAndDisplayPokemons() {
     return;
   }
 
-  pokemons.forEach(addPokemonTopokemonsContainer);
+  // - changer la classe grid de la mainContainer
+  changeGridClass("#main-container", "grid is-col-min-3", "grid is-col-min-12");
+
+  pokemons.forEach(addPokemonsToContainer);
 }
 
-export function addPokemonTopokemonsContainer(pokemon) {
-  const grid = document.querySelector(".grid");
+export async function fetchAndDisplayTypes() {
+  resetMainContainer();
+  const types = await getTypes();
 
+  if (!types) {
+    alert("Une erreur est survenue. Réessayer plus tard."); // TODO: remplacer le alert par l'ouverture d'une modale d'erreur plus ergonomique
+    return;
+  }
+
+  // - changer la classe grid de la mainContainer
+  changeGridClass("#main-container", "grid is-col-min-12", "grid is-col-min-3");
+
+  types.forEach(addTypesToContainer);
+}
+
+export function addPokemonsToContainer(pokemon) {
   // - récupérer le template d'un pokemon
   const pokemonTemplate = document.querySelector("#template-pokemon");
 
@@ -89,9 +105,35 @@ export function addPokemonTopokemonsContainer(pokemon) {
     ).textContent = `SPEED: ${pokemon.speed}`;
   });
 
-  // - selectionner le pokemons-container
-  const pokemonsContainer = document.querySelector("#pokemons-container");
+  // - selectionner le main-container
+  const pokemonsContainer = document.querySelector("#main-container");
+
+  // - ajoutter le grid adequat
+  pokemonsContainer.classList.add("grid", "is-col-min-12");
 
   // - insérer le clone dedans
   pokemonsContainer.appendChild(pokemonClone);
+}
+
+export function addTypesToContainer(type) {
+  // - recuperer le template d'un type
+  const typeTemplate = document.querySelector("#template-type");
+
+  // - cloner le template
+  const typeClone = typeTemplate.content.cloneNode(true);
+
+  // - recuperer le nom du type
+  typeClone.querySelector("[slot=type-name]").dataset.typeName = type.name;
+
+  // - inserer le nom du type
+  typeClone.querySelector("[slot=type-name]").textContent = `${type.name}`;
+
+  // - changer la couleur du fond du tag
+  typeClone.querySelector(".tag").style.backgroundColor = `#${type.color}`;
+
+  // - selectionner le main-container
+  const typeContainer = document.querySelector("#main-container");
+
+  // - insérer le clone dedans
+  typeContainer.appendChild(typeClone);
 }

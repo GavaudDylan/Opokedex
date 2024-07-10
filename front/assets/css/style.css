@@ -15,7 +15,15 @@
   height: auto;
 }
 
-.card-image {
-  width: 80%;
-  height: auto;
+.media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
