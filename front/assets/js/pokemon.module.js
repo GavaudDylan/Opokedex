@@ -1,4 +1,4 @@
-import { getPokemons, getPokemon, getTypes } from "./api.js";
+import { getPokemons, getPokemon, getTypes, getType } from "./api.js";
 import { resetMainContainer, changeGridClass } from "./utils.js";
 
 export async function fetchAndDisplayPokemons() {
@@ -137,3 +137,21 @@ export function addTypesToContainer(type) {
   // - insérer le clone dedans
   typeContainer.appendChild(typeClone);
 }
+
+// export function sortPokemonsByType(type) {
+//   const pokemonsContainer = document.querySelector("#main-container");
+//   const pokemons = pokemonsContainer.querySelectorAll(".cell");
+
+//   pokemons.forEach((pokemon) => {
+//     const pokemonId = pokemon.querySelector("[slot=pokemon-id-name]").dataset
+//       .pkmId;
+//     const pokemonType = pokemon.querySelector("[slot=pokemon-type]").dataset
+//       .type;
+
+//     if (pokemonType === type) {
+//       pokemon.classList.add("is-hidden");
+//     } else {
+//       pokemon.classList.remove("is-hidden");
+//     }
+//   });
+// }

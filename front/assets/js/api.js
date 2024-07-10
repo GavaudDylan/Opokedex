@@ -4,13 +4,15 @@ export async function getPokemons() {
   try {
     const httpResponse = await fetch(`${apiBaseUrl}/pokemons`);
     if (!httpResponse.ok) {
-      console.log(httpResponse);
-      return null;
+      throw new Error(`HTTP error! status: ${httpResponse.status}`);
     }
     const pokemons = await httpResponse.json();
     return pokemons;
   } catch (error) {
-    console.error(error);
+    console.error(
+      "Une erreur est survenue lors de la récupération des Pokémons : ",
+      error
+    );
     return null;
   }
 }
@@ -39,6 +41,21 @@ export async function getTypes() {
     }
     const types = await httpResponse.json();
     return types;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+export async function getType(id) {
+  try {
+    const httpResponse = await fetch(`${apiBaseUrl}/types/${id}`);
+    if (!httpResponse.ok) {
+      console.log(httpResponse);
+      return null;
+    }
+    const type = await httpResponse.json();
+    return type;
   } catch (error) {
     console.error(error);
     return null;
