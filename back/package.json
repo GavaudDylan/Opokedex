@@ -8,6 +8,7 @@
     "db:run": "psql -U opokedex -d opokedex",
     "db:create": "psql -U opokedex -d opokedex -f ./data/create_tables.sql",
     "db:populate": "psql -U opokedex -d opokedex -f ./data/seeding_tables.sql",
+    "db:teams-populate": "node ./seeding_teams_on_table.js",
     "db:reset": "psql -U opokedex -d opokedex -f ./data/create_tables.sql && npm run db:populate"
   },
   "keywords": [],
