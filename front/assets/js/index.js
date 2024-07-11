@@ -5,7 +5,7 @@ import {
 
 import { initClosingModalButtons } from "./utils.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   initClosingModalButtons();
 
   const pokemonsButton = document.querySelector("#pokemons-button");
@@ -23,4 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   pokemonsButton.addEventListener("click", fetchAndDisplayPokemons);
   pokemonsTypeButton.addEventListener("click", fetchAndDisplayTypes);
+  // Charger les données lors du chargement de la page
+  await fetchAndDisplayPokemons();
 });
