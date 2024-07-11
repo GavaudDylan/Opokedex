@@ -8,7 +8,7 @@ export const router = Router();
 // router.get("/");
 
 // Pokémons
-router.get("/pokemons", pokemonController.getAllpokemons);
+router.get("/pokemons", pokemonController.getAllpokemon);
 router.get("/pokemons/:id", pokemonController.getPokemonById);
 
 // Types
@@ -17,7 +17,7 @@ router.get("/types/:id", typeController.getTypeById);
 
 // Équipes
 router.get("/teams", teamController.GetAllTeams);
-// router.get("/teams/:id", getTeamById);
+router.get("/teams/:id", teamController.getTeamById);
 // router.post("/teams", createTeam);
 // router.patch("/teams/:id", patchTeam);
 // router.delete("/teams/:id", deleteTeam);

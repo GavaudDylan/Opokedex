@@ -2,7 +2,7 @@ import { Pokemon } from "../models/Pokemon.js";
 import { Type } from "../models/Type.js";
 import { Team } from "../models/Team.js";
 
-export async function getAllpokemons(req, res) {
+export async function getAllpokemon(req, res) {
   const pokemons = await Pokemon.findAll();
   res.json(pokemons);
 }

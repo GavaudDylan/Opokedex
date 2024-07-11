@@ -29,7 +29,7 @@
             <div class="navbar-brand">
                 <a id="pokeball-button" class="navbar-item">
                     <img src="./assets/icons/pokeball.svg" alt="Pokeball-logo">
-
+                    <h1>Opokedex</h1>
                 </a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -44,7 +44,7 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                     <a id="pokemons-button" class="navbar-item">
-                        Les Pokémons
+                        Les Pokémon
                     </a>
 
                     <a id="pokemons-type-button" class="navbar-item">
@@ -101,7 +101,7 @@
 
     <!-- template de Pokémon -->
     <template id="template-pokemon">
-        <div class="cell p-4 cell slot-pokemon-id">
+        <div class="cell p-4 cell" slot="pokemon-id">
             <div class="card">
                 <div class="card-image">
                     <figure class="image image-container modale">
@@ -130,8 +130,12 @@
 
     <!-- template de type -->
     <template id="template-type">
-        <div class="tags are-medium">
-            <span class="tag" slot="type-name"></span>
+        <div class="card type-card">
+            <div class="card-content">
+                <div class="content">
+                    <p class="type-content" slot="type-name"></p>
+                </div>
+            </div>
         </div>
     </template>
 

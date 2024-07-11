@@ -39,3 +39,17 @@
 .modal-card-foot {
   background-color: #ff6685;
 }
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  cursor: pointer;
+}
+
+.type-card {
+  cursor: pointer;
+}

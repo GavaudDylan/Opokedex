@@ -1,8 +1,6 @@
-import {
-  fetchAndDisplayPokemons,
-  fetchAndDisplayTypes,
-  fetchAndDisplayTeams,
-} from "./pokemon.module.js";
+import { fetchAndDisplayPokemons } from "./pokemon.module.js";
+import { fetchAndDisplayTypes } from "./type.module.js";
+import { fetchAndDisplayTeams } from "./team.module.js";
 
 import { initClosingModalButtons } from "./utils.js";
 
@@ -11,8 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const pokeballButton = document.querySelector("#pokeball-button");
   const pokemonsButton = document.querySelector("#pokemons-button");
-  const pokemonsTypeButton = document.querySelector("#pokemons-type-button");
-  const pokemonsTeamButton = document.querySelector("#pokemons-team-button");
+  const typeButton = document.querySelector("#pokemons-type-button");
+  const teamButton = document.querySelector("#pokemons-team-button");
   // const pokemonsSortTypeButton = document.querySelector(
   //   "#pokemons-sort-type-button"
   // );
@@ -25,8 +23,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   pokeballButton.addEventListener("click", fetchAndDisplayPokemons);
   pokemonsButton.addEventListener("click", fetchAndDisplayPokemons);
-  pokemonsTypeButton.addEventListener("click", fetchAndDisplayTypes);
-  pokemonsTeamButton.addEventListener("click", fetchAndDisplayTeams);
+  typeButton.addEventListener("click", fetchAndDisplayTypes);
+  teamButton.addEventListener("click", fetchAndDisplayTeams);
   // Charger les données lors du chargement de la page
   await fetchAndDisplayPokemons();
 });
