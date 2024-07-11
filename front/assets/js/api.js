@@ -27,7 +27,10 @@ export async function getPokemon(id) {
     const pokemon = await httpResponse.json();
     return pokemon;
   } catch (error) {
-    console.error(error);
+    console.error(
+      "Une erreur est survenue lors de la récupération du Pokémon : ",
+      error
+    );
     return null;
   }
 }
@@ -42,7 +45,10 @@ export async function getTypes() {
     const types = await httpResponse.json();
     return types;
   } catch (error) {
-    console.error(error);
+    console.error(
+      "Une erreur est survenue lors de la récupération des Types : ",
+      error
+    );
     return null;
   }
 }
@@ -57,7 +63,27 @@ export async function getType(id) {
     const type = await httpResponse.json();
     return type;
   } catch (error) {
-    console.error(error);
+    console.error(
+      "Une erreur est survenue lors de la récupération du Type : ",
+      error
+    );
+    return null;
+  }
+}
+export async function getTeams() {
+  try {
+    const httpResponse = await fetch(`${apiBaseUrl}/teams`);
+    if (!httpResponse.ok) {
+      console.log(httpResponse);
+      return null;
+    }
+    const teams = await httpResponse.json();
+    return teams;
+  } catch (error) {
+    console.error(
+      "Une erreur est survenue lors de la récupération des Équipes : ",
+      error
+    );
     return null;
   }
 }

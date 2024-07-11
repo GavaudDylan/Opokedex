@@ -31,3 +31,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.modal-card-head {
+  background-color: #ff6685;
+}
+
+.modal-card-foot {
+  background-color: #ff6685;
+}

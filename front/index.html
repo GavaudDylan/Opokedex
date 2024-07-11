@@ -25,9 +25,9 @@
 
 <body>
     <header>
-        <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a id="pokeball-button" class="navbar-item" href="/pokemons">
+                <a id="pokeball-button" class="navbar-item">
                     <img src="./assets/icons/pokeball.svg" alt="Pokeball-logo">
 
                 </a>
@@ -48,7 +48,7 @@
                     </a>
 
                     <a id="pokemons-type-button" class="navbar-item">
-                        Les types de Pokémons
+                        Les types de Pokémon
                     </a>
 
                     <a id="pokemons-team-button" class="navbar-item">
@@ -57,7 +57,7 @@
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
-                            Trier les Pokémons
+                            Trier les Pokémon
                         </a>
 
                         <div class="navbar-dropdown">
@@ -79,7 +79,7 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary">
+                            <a class="button is-light">
                                 <strong>Sign up</strong>
                             </a>
                             <a class="button is-light">
@@ -101,6 +101,42 @@
 
     <!-- template de Pokémon -->
     <template id="template-pokemon">
+        <div class="cell p-4 cell slot-pokemon-id">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image image-container modale">
+                        <div>
+                            <img class="image-content" src="">
+                        </div>
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="tag is-link is-light">Link</span>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">
+                            <div slot="pokemon-id-name" class="has-text-centered"></div>
+                            <!-- Nom du Pokémon -->
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </template>
+
+    <!-- template de type -->
+    <template id="template-type">
+        <div class="tags are-medium">
+            <span class="tag" slot="type-name"></span>
+        </div>
+    </template>
+
+    <!-- template de team -->
+    <template id="template-team">
         <div class="cell p-4 cell">
             <div class="card">
                 <div class="card-image">
@@ -117,20 +153,17 @@
                         </div>
                         <div class="media-content">
                             <p class="title is-4">
-                            <div slot="pokemon-id-name" class="has-text-centered">
+                            <div slot="team-id-name" class="has-text-centered">
                                 <!-- Nom du Pokémon -->
                             </div>
                             </p>
                         </div>
                     </div>
+                    <div class="content" slot="team-description">
+                        <!-- Description de la team -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </template>
-
-    <template id="template-type">
-        <div class="tags are-medium">
-            <span class="tag" slot="type-name"></span>
         </div>
     </template>
 

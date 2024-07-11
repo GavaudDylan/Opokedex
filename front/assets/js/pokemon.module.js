@@ -31,6 +31,21 @@ export async function fetchAndDisplayTypes() {
   types.forEach(addTypesToContainer);
 }
 
+export async function fetchAndDisplayTeams() {
+  resetMainContainer();
+  const teams = await getTeams();
+
+  if (!teams) {
+    alert("Une erreur est survenue. Réessayer plus tard."); // TODO: remplacer le alert par l'ouverture d'une modale d'erreur plus ergonomique
+    return;
+  }
+
+  // - changer la classe grid de la mainContainer
+  changeGridClass("#main-container", "grid is-col-min-12", "grid is-col-min-3");
+
+  teams.forEach(addTeamsToContainer);
+}
+
 export function addPokemonsToContainer(pokemon) {
   // - récupérer le template d'un pokemon
   const pokemonTemplate = document.querySelector("#template-pokemon");
@@ -39,8 +54,7 @@ export function addPokemonsToContainer(pokemon) {
   const pokemonClone = pokemonTemplate.content.cloneNode(true);
 
   // - recuperer l'id du pokemon
-  pokemonClone.querySelector("[slot=pokemon-id-name]").dataset.pkmId =
-    pokemon.id;
+  pokemonClone.querySelector("[slot=pokemon-id]").dataset.pkmId = pokemon.id;
 
   // - modifier le template avec les données du pokemon (id + name)
   pokemonClone.querySelector(
@@ -136,6 +150,28 @@ export function addTypesToContainer(type) {
 
   // - insérer le clone dedans
   typeContainer.appendChild(typeClone);
+}
+
+export function addTeamsToContainer(team) {
+  // - récupérer le template d'une team
+  const teamTemplate = document.querySelector("#template-team");
+
+  // - cloner le template
+  const teamClone = teamTemplate.content.cloneNode(true);
+
+  // - modifier le template avec les données de la team (name)
+  teamClone.querySelector("[slot=team-id-name]").textContent = `${team.name}`;
+
+  // - modifier le template avec les données de la team (description)
+  teamClone.querySelector(
+    "[slot=team-description]"
+  ).textContent = `${team.description}`;
+
+  // - selectionner le main-container
+  const teamsContainer = document.querySelector("#main-container");
+
+  // - insérer le clone dedans
+  teamsContainer.appendChild(teamClone);
 }
 
 // export function sortPokemonsByType(type) {
