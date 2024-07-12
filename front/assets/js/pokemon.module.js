@@ -1,11 +1,4 @@
-import {
-  getAllPokemon,
-  getPokemonById,
-  getAllTypes,
-  getTypeById,
-  getAllTeams,
-  getTeamById,
-} from "./api.js";
+import { getAllPokemon, getPokemonById } from "./api.js";
 import { resetMainContainer, changeGridClass } from "./utils.js";
 
 export async function fetchAndDisplayPokemons() {
@@ -44,7 +37,7 @@ export function addPokemonsToContainer(pokemon) {
   // - écouter le click sur la carte de Pokémon
   const pokemonCard = pokemonClone.querySelector(".cell");
   pokemonCard.addEventListener("click", () => {
-    setupPokemonModal(pokemon);
+    fetchAndDisplayPokemonModal(pokemon.id);
   });
 
   // - selectionner le main-container
@@ -57,7 +50,13 @@ export function addPokemonsToContainer(pokemon) {
   pokemonsContainer.appendChild(pokemonClone);
 }
 
-function setupPokemonModal(pokemon) {
+export async function fetchAndDisplayPokemonModal(pokemonId) {
+  const pokemon = await getPokemonById(pokemonId);
+  if (!pokemon) {
+    alert("Une erreur est survenue. Réessayer plus tard."); // TODO: remplacer le alert par l'ouverture d'une modale d'erreur plus ergonomique
+    return;
+  }
+
   // - activer la modale
   const pokemonModal = document.querySelector("[slot=pokemon-modale]");
   pokemonModal.classList.add("is-active");

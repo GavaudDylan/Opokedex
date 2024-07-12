@@ -1,7 +1,6 @@
 import { fetchAndDisplayPokemons } from "./pokemon.module.js";
 import { fetchAndDisplayTypes } from "./type.module.js";
 import { fetchAndDisplayTeams } from "./team.module.js";
-
 import { initClosingModalButtons } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -25,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   pokemonsButton.addEventListener("click", fetchAndDisplayPokemons);
   typeButton.addEventListener("click", fetchAndDisplayTypes);
   teamButton.addEventListener("click", fetchAndDisplayTeams);
+
   // Charger les données lors du chargement de la page
   await fetchAndDisplayPokemons();
 });

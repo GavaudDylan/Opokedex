@@ -9,11 +9,6 @@ export async function getAllpokemon(req, res) {
 
 export async function getPokemonById(req, res) {
   const { id } = req.params;
-  const pokemon = await Pokemon.findByPk(id, {
-    include: [
-      { model: Type, as: "types" },
-      { model: Team, as: "teams" },
-    ],
-  });
+  const pokemon = await Pokemon.findByPk(id);
   res.json(pokemon);
 }
