@@ -1,11 +1,5 @@
-import {
-  getAllPokemon,
-  getPokemonById,
-  getAllTypes,
-  getTypeById,
-  getAllTeams,
-  getTeamById,
-} from "./api.js";
+import { getAllTypes } from "./api.js";
+import { addFilteredPokemonsByTypeToContainer } from "./pokemon.module.js";
 import { resetMainContainer, changeGridClass } from "./utils.js";
 
 export async function fetchAndDisplayTypes() {
@@ -43,7 +37,7 @@ export function addTypesToContainer(type) {
 
   // - ajouter un écouter d'évènement pour le click sur la carte
   typeClone.querySelector(".type-card").addEventListener("click", () => {
-    addPokemonsByTypeToContainer(type.id);
+    addFilteredPokemonsByTypeToContainer(type.id);
   });
 
   // - selectionner le main-container

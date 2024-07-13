@@ -70,6 +70,7 @@ export async function getTypeById(id) {
     return null;
   }
 }
+
 export async function getAllTeams() {
   try {
     const httpResponse = await fetch(`${apiBaseUrl}/teams`);

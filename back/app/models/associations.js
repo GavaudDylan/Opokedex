@@ -26,4 +26,4 @@ Team.belongsToMany(Pokemon, {
   foreignKey: "team_id",
 });
 
-export { Pokemon, Team, Type };
+export { Pokemon, Type, Team };

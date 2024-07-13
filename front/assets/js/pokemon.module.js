@@ -108,3 +108,20 @@ export async function fetchAndDisplayPokemonModal(pokemonId) {
     "[slot=pokemon-speed-content]"
   ).textContent = `SPEED: ${pokemon.speed}`;
 }
+
+export async function addFilteredPokemonsByTypeToContainer(typeId) {
+  resetMainContainer();
+  const type = await getTypeById(typeId);
+
+  if (!type) {
+    alert("Une erreur est survenue. Réessayer plus tard."); // TODO: remplacer le alert par l'ouverture d'une modale d'erreur plus ergonomique
+    return;
+  }
+
+  const pokemons = type.pokemons;
+
+  // - changer la classe grid de la mainContainer
+  changeGridClass("#main-container", "grid is-col-min-3", "grid is-col-min-12");
+
+  pokemons.forEach(addPokemonsToContainer);
+}

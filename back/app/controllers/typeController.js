@@ -7,8 +7,23 @@ export async function getAllTypes(req, res) {
 }
 
 export async function getTypeById(req, res) {
-  const { id } = req.params;
-  const type = await Type.findByPk(id);
-  // console.log(type);
-  res.json(type);
+  const { typeId } = parseInt(req.params.id);
+
+  if (isNaN(typeId)) {
+    return res$
+      .status(404)
+      .json({ error: "Pokemon not found. Please verify the provided ID." });
+  }
+  const findTypeById = await Type.findByPk(typeId, {
+    include: ["pokemons"],
+    order: [["id", "ASC"]],
+  });
+
+  if (!findTypeById) {
+    return res.status(404).json({
+      error: "Type not found. Please verify the provided ID.",
+    });
+  }
+
+  res.json(findTypeById);
 }
